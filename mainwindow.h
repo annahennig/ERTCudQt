@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "portmonitor.h"
+#include "bateriabar.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +20,10 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    PortMonitor *monitor;
+
+private slots:
+    void showData(QByteArray data);
 };
 
 #endif // MAINWINDOW_H
