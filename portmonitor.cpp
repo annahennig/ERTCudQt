@@ -20,10 +20,10 @@ PortMonitor::PortMonitor(QWidget *parent)
     loggerNatural = NULL;
 
     //z dokumentacji od Kaluby
-    FirstByte = 0xAA;
+    FirstByte = 0x54;
     LastBytes1 = 0x0D;
     LastBytes2 = 0x0A;
-    SizeOfFrame = 7;
+    SizeOfFrame = 22;
 
 }
 
