@@ -78,8 +78,9 @@ void PortSettingsWindow::fillPortsParameters()
     ui->comboBox_baudRate->addItem(QStringLiteral("19200"), QSerialPort::Baud19200);
     ui->comboBox_baudRate->addItem(QStringLiteral("38400"), QSerialPort::Baud38400);
     ui->comboBox_baudRate->addItem(QStringLiteral("115200"), QSerialPort::Baud115200);
+    ui->comboBox_baudRate->addItem(QStringLiteral("1000000"),1000000);
     ui->comboBox_baudRate->addItem(QStringLiteral("Custom"));
-    ui->comboBox_baudRate->setCurrentIndex(3); //z automatu ustawiam 115200
+    ui->comboBox_baudRate->setCurrentIndex(4); //z automatu ustawiam 1000000, bo tak nadaje pilot
 
     ui->comboBox_dataBits->addItem(QStringLiteral("5"), QSerialPort::Data5);
     ui->comboBox_dataBits->addItem(QStringLiteral("6"), QSerialPort::Data6);
