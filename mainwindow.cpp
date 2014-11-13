@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     monitor = new PortMonitor(this);
     connect(ui->pushButtonConnect,SIGNAL(clicked()),monitor,SLOT(openSerialPort()));
     connect(ui->pushButtonPreferences,SIGNAL(clicked()),monitor->settings,SLOT(show()));
+    connect(monitor,SIGNAL(newDataArrived(QByteArray)),this,SLOT(showData(QByteArray)));
 }
 
 
