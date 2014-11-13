@@ -66,5 +66,5 @@ void BateriaBar::setValue(int a)
 {
     l= (float) a;
     w=l/max;
-    paintGL();
+    updateGL();
 }
