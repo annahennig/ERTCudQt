@@ -102,25 +102,12 @@ void PortMonitor::readData()
             //dane dla loggera ramek i pola tekstowego
             emit newDataArrived(QByteArray(data,SizeOfFrame));
 
-            //rosnąca stopniowo wartość- trzeci bajt
-            int thridValue =  uchar(data[2]);
-            emit newThridByteValue(thridValue);
+            int pion = (unsigned char) data[3];
+            //if( (unsigned char) data[4] == 0xff) pion = -1 * pion;
 
-            //czerwony przełącznik- trzeci od końca bit drugiego bajtu
-            bool redValue;
-            char state =  data[1]; //drugi bajt ramki
-            if(state & 0b00000100) redValue =true;
-            else redValue = false;
-            emit newRedSwitchState(redValue);
+            pion += 0x9c;
 
-            //potencjometr
-            qint16 potValue = mergeBytes(data[3],data[4]);
-            emit newPotentiometerValueString(QString("Potencjometr: %1").arg(potValue));
-            emit newPotentiometerValue(potValue);
-
-            //dane dla loggera z naturalnym zapisem
-            QString newString = QString("Wartość trzeciego bitu: %1, Czerwony przełącznik: %2, Potencjometr: %3").arg(thridValue).arg(redValue).arg(potValue);
-            emit newControlsStateString(newString);
+            emit newVerticalLeft(pion);
 
             //reset timera odmierzającego sekundę od ostatniej poprawnej ramki
             errorTimer->start();

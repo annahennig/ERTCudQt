@@ -19,18 +19,29 @@
      <widget class="QPlainTextEdit" name="plainTextEditLog"/>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButtonPreferences">
-      <property name="text">
-       <string>Ustawienia</string>
+     <widget class="QSlider" name="verticalSliderPion">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButtonConnect">
-      <property name="text">
-       <string>Połącz</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QPushButton" name="pushButtonPreferences">
+        <property name="text">
+         <string>Ustawienia</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonConnect">
+        <property name="text">
+         <string>Połącz</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
    </layout>
   </widget>

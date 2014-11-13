@@ -10,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->pushButtonConnect,SIGNAL(clicked()),monitor,SLOT(openSerialPort()));
     connect(ui->pushButtonPreferences,SIGNAL(clicked()),monitor->settings,SLOT(show()));
     connect(monitor,SIGNAL(newDataArrived(QByteArray)),this,SLOT(showData(QByteArray)));
+    connect(monitor,SIGNAL(newVerticalLeft(int)),ui->verticalSliderPion,SLOT(setValue(int)));
+
+    ui->verticalSliderPion->setMinimum(0);
+    ui->verticalSliderPion->setMaximum(256);
 }
 
 

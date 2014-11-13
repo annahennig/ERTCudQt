@@ -25,10 +25,8 @@ public slots:
     void closeSerialPort();
 signals:
     void newDataArrived(QByteArray);
-    void newRedSwitchState(bool);
-    void newPotentiometerValue(int);
-    void newPotentiometerValueString(QString);
-    void newThridByteValue(int);
+    void newVerticalLeft(int);
+
     void newControlsStateString(QString);
 private slots:
     void openSerialPort();
