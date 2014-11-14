@@ -25,7 +25,7 @@ public slots:
     void closeSerialPort();
 signals:
     void newDataArrived(QByteArray);
-    void newVerticalLeft(int);
+    void newlLeftVerticaTriggerValue(int);
 
     void newControlsStateString(QString);
 private slots:

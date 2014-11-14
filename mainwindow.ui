@@ -19,7 +19,7 @@
      <widget class="QPlainTextEdit" name="plainTextEditLog"/>
     </item>
     <item>
-     <widget class="QSlider" name="verticalSliderPion">
+     <widget class="QSlider" name="verticalSliderLeftVerticalTrigger">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>

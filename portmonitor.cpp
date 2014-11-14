@@ -71,7 +71,7 @@ void PortMonitor::openSerialPort()
 void PortMonitor::closeSerialPort()
 {
     if(logger != NULL) logger->closeFile();
-    if(logger != NULL) loggerNatural->closeFile();
+    if(loggerNatural != NULL) loggerNatural->closeFile();
     delete logger;
     delete loggerNatural;
     errorTimer->stop();
@@ -100,14 +100,13 @@ void PortMonitor::readData()
         if (data[SizeOfFrame-1]==LastBytes2 && data[SizeOfFrame-2] == LastBytes1) //sprawdź czy działa z dwoma bajtami
         {
             //dane dla loggera ramek i pola tekstowego
-            emit newDataArrived(QByteArray(data,SizeOfFrame));
+            emit newDataArrived(QByteArray(data,SizeOfFrame));            
 
-            int pion = (unsigned char) data[3];
             //if( (unsigned char) data[4] == 0xff) pion = -1 * pion;
+            //pion += 0x9c;
 
-            pion += 0x9c;
-
-            emit newVerticalLeft(pion);
+            qint16 pion = mergeBytes(data[4],data[3]);
+            emit newlLeftVerticaTriggerValue(pion);
 
             //reset timera odmierzającego sekundę od ostatniej poprawnej ramki
             errorTimer->start();
