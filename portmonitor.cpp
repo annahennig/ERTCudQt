@@ -95,9 +95,9 @@ void PortMonitor::readData()
             dev->read(data, i); // te dane zostaną utracone - są pozostałością poprzedniej, niepełnej ramki
             continue;
         }
-        dev->read(data, SizeOfFrame);
+        dev->read(data, SizeOfFrame); //właściwe odczytanie ramki z portu
         //QByteArray array = dev->readAll();
-        if (data[SizeOfFrame-1]==LastBytes2 && data[SizeOfFrame-2] == LastBytes1) //sprawdź czy działa z dwoma bajtami
+        if (data[SizeOfFrame-1]==LastBytes2 && data[SizeOfFrame-2] == LastBytes1) //sprawdź czy 2 ostatnie bajty są zgodne z specyfikacją ramki
         {
             //dane dla loggera ramek i pola tekstowego
             emit newDataArrived(QByteArray(data,SizeOfFrame));            
@@ -108,7 +108,7 @@ void PortMonitor::readData()
             qint16 pion = mergeBytes(data[4],data[3]);
             emit newlLeftVerticaTriggerValue(pion);
 
-            //reset timera odmierzającego sekundę od ostatniej poprawnej ramki
+            //reset timera odmierzającego sekundę od ostatniej poprawnej ramki, aby wyświetlić ostrzeżenie o raku danych
             errorTimer->start();
         }
     }
@@ -118,7 +118,7 @@ void PortMonitor::handleError(QSerialPort::SerialPortError error)
 {
     if(error == QSerialPort::ResourceError)
     {
-        QMessageBox::critical(parent,"Zepsulem sie",port->errorString());
+        QMessageBox::critical(parent,"Zepsułem się",port->errorString());
         closeSerialPort();
     }
 }
