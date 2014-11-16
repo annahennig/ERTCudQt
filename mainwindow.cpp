@@ -7,13 +7,27 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     monitor = new PortMonitor(this);
+    //przyciski
     connect(ui->pushButtonConnect,SIGNAL(clicked()),monitor,SLOT(openSerialPort()));
     connect(ui->pushButtonPreferences,SIGNAL(clicked()),monitor->settings,SLOT(show()));
+    connect(ui->pushButtonDsiconnect,SIGNAL(clicked()),monitor,SLOT(closeSerialPort()));
+    //sygnały wysyłane, przez monitor portu
     connect(monitor,SIGNAL(newDataArrived(QByteArray)),this,SLOT(showData(QByteArray)));
-    connect(monitor,SIGNAL(newlLeftVerticaTriggerValue(int)),ui->verticalSliderLeftVerticalTrigger,SLOT(setValue(int)));
-
+    connect(monitor,SIGNAL(newLeftVerticaTriggerValue(int)),ui->verticalSliderLeftVerticalTrigger,SLOT(setValue(int)));
+    connect(monitor,SIGNAL(newLeftHorizontalTriggerValue(int)),ui->horizontalSliderLeftHorizontalTrigger,SLOT(setValue(int)));
+    connect(monitor,SIGNAL(newRightVerticaTriggerValue(int)),ui->verticalSliderRightVerticalTrigger,SLOT(setValue(int)));
+    connect(monitor,SIGNAL(newRightHorizontalTriggerValue(int)),ui->horizontalSliderRightHorizontalTrigger,SLOT(setValue(int)));
+    connect(monitor,SIGNAL(newLeftTriggerString(QString)),ui->labelLeftTrigger,SLOT(setText(QString)));
+    connect(monitor,SIGNAL(newRightTriggerString(QString)),ui->labelRightTrigger,SLOT(setText(QString)));
+    //dostosowanie kontrolek
     ui->verticalSliderLeftVerticalTrigger->setMinimum(-100);
     ui->verticalSliderLeftVerticalTrigger->setMaximum(100);
+    ui->verticalSliderRightVerticalTrigger->setMinimum(-100);
+    ui->verticalSliderRightVerticalTrigger->setMaximum(100);
+    ui->horizontalSliderLeftHorizontalTrigger->setMinimum(-100);
+    ui->horizontalSliderLeftHorizontalTrigger->setMaximum(100);
+    ui->horizontalSliderRightHorizontalTrigger->setMinimum(-100);
+    ui->horizontalSliderRightHorizontalTrigger->setMaximum(100);
 }
 
 
@@ -27,11 +41,11 @@ MainWindow::~MainWindow()
 
 void MainWindow::showData(QByteArray data)
 {
-    {
-        QString text("Ostatnia ramka: ");
-        QString FrameStr(data.toHex());
-        text.append(FrameStr);
-        ui->plainTextEditLog->selectAll();
-        ui->plainTextEditLog->insertPlainText(text);
-    }
+
+    QString text("Ostatnia ramka: ");
+    QString FrameStr(data.toHex());
+    text.append(FrameStr);
+    ui->plainTextEditLog->selectAll();
+    ui->plainTextEditLog->insertPlainText(text);
+
 }

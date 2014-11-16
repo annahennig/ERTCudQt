@@ -14,19 +14,84 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayoutLeftTrigger">
+      <item>
+       <widget class="QLabel" name="labelLeftTrigger">
+        <property name="text">
+         <string>Lewy Drążek:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayouLeftTrigger">
+        <item>
+         <widget class="QSlider" name="verticalSliderLeftVerticalTrigger">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSlider" name="horizontalSliderLeftHorizontalTrigger">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayoutRightTrigger">
+      <item>
+       <widget class="QLabel" name="labelRightTrigger">
+        <property name="text">
+         <string>Prawy drążek:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayoutRightTrigger">
+        <item>
+         <widget class="QSlider" name="verticalSliderRightVerticalTrigger">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QSlider" name="horizontalSliderRightHorizontalTrigger">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item>
      <widget class="QPlainTextEdit" name="plainTextEditLog"/>
     </item>
     <item>
-     <widget class="QSlider" name="verticalSliderLeftVerticalTrigger">
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QVBoxLayout" name="verticalLayoutButtons">
+      <item>
+       <widget class="QPushButton" name="pushButtonConnect">
+        <property name="text">
+         <string>Połącz</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonDsiconnect">
+        <property name="text">
+         <string>Rozłącz</string>
+        </property>
+       </widget>
+      </item>
       <item>
        <widget class="QPushButton" name="pushButtonPreferences">
         <property name="text">
@@ -35,15 +100,26 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonConnect">
-        <property name="text">
-         <string>Połącz</string>
+       <spacer name="verticalSpacerButtons">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
         </property>
-       </widget>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
       </item>
      </layout>
     </item>
    </layout>
+   <zorder>plainTextEditLog</zorder>
+   <zorder>horizontalSliderLeftHorizontalTrigger</zorder>
+   <zorder>horizontalLayoutWidget</zorder>
+   <zorder>verticalLayoutWidget</zorder>
+   <zorder>labelRightTrigger</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

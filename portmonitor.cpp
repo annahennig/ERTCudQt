@@ -54,16 +54,16 @@ void PortMonitor::openSerialPort()
         logger = new LoggingDevice(this,p.name);
         connect(this,SIGNAL(newDataArrived(QByteArray)),logger,SLOT(addLine(QByteArray)));
 
-        //Logger zapisujący informacje w przyjemniejszej dla człowieka formie
-        loggerNatural = new LoggingDevice(this,p.name,"Natural");
-        connect(this,SIGNAL(newControlsStateString(QString)),loggerNatural,SLOT(addLine(QString)));
+//        //Logger zapisujący informacje w przyjemniejszej dla człowieka formie
+//        loggerNatural = new LoggingDevice(this,p.name,"Natural");
+//        connect(this,SIGNAL(newControlsStateString(QString)),loggerNatural,SLOT(addLine(QString)));
 
         qDebug() << "connected";
     }
     else
     {
         //nie bangla
-        QMessageBox::critical(parent,"Blad",port->errorString());
+        QMessageBox::critical(parent,"Błąd",port->errorString());
     }
     errorTimer->start();
 }
@@ -101,12 +101,29 @@ void PortMonitor::readData()
         {
             //dane dla loggera ramek i pola tekstowego
             emit newDataArrived(QByteArray(data,SizeOfFrame));            
-            //lewy joystick pionowy
+            //lewy drążek pionowy- działa ok
             qint16 leftVerticalTrigger = mergeBytes(data[4],data[3]);
-            emit newlLeftVerticaTriggerValue(leftVerticalTrigger);
-            //lewy joystick poziomy
+            emit newLeftVerticaTriggerValue(leftVerticalTrigger);
 
-            //reset timera odmierzającego sekundę od ostatniej poprawnej ramki, aby wyświetlić ostrzeżenie o raku danych
+            //lewy drążek poziomy- do sprawdzenia
+            qint16 leftHorizontalTrigger = mergeBytes(data[2],data[1]);
+            emit newLeftHorizontalTriggerValue(leftHorizontalTrigger);
+
+            //opis lewego drążka
+            emit newLeftTriggerString(QString("Lewy drążek: %1 x %2").arg(leftHorizontalTrigger).arg(leftVerticalTrigger));
+
+            //prawy drążek poziomy-do sprawdzenia
+            qint16 rightHorizontalTrigger = mergeBytes(data[6],data[5]);
+            emit newRightHorizontalTriggerValue(rightHorizontalTrigger);
+
+            //prawy drążek pionowy-do sprawdzenia
+            qint16 rightVerticalTrigger = mergeBytes(data[8],data[7]);
+            emit newRightVerticaTriggerValue(rightVerticalTrigger);
+
+            //opis prawego drążka
+            emit newRightTriggerString(QString("Prawy drążek: %1 x %2").arg(rightHorizontalTrigger).arg(rightVerticalTrigger));
+
+            //reset timera odmierzającego sekundę od ostatniej poprawnej ramki, aby wyświetlić ostrzeżenie o braku danych
             errorTimer->start();
         }
     }

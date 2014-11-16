@@ -26,11 +26,13 @@ public slots:
 signals:
     void newDataArrived(QByteArray);
 
-    void newlLeftVerticaTriggerValue(int);
+    void newLeftVerticaTriggerValue(int);
     void newLeftHorizontalTriggerValue(int);
+    void newLeftTriggerString(QString);
 
     void newRightVerticaTriggerValue(int);
     void newRightHorizontalTriggerValue(int);
+    void newRightTriggerString(QString);
 
     void newControlsStateString(QString);
 private slots:
