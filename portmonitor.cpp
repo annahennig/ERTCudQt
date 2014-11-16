@@ -101,12 +101,10 @@ void PortMonitor::readData()
         {
             //dane dla loggera ramek i pola tekstowego
             emit newDataArrived(QByteArray(data,SizeOfFrame));            
-
-            //if( (unsigned char) data[4] == 0xff) pion = -1 * pion;
-            //pion += 0x9c;
-
-            qint16 pion = mergeBytes(data[4],data[3]);
-            emit newlLeftVerticaTriggerValue(pion);
+            //lewy joystick pionowy
+            qint16 leftVerticalTrigger = mergeBytes(data[4],data[3]);
+            emit newlLeftVerticaTriggerValue(leftVerticalTrigger);
+            //lewy joystick poziomy
 
             //reset timera odmierzającego sekundę od ostatniej poprawnej ramki, aby wyświetlić ostrzeżenie o raku danych
             errorTimer->start();

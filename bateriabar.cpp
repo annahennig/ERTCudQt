@@ -15,7 +15,14 @@ void BateriaBar::setMaximum(int a)
 {
     max= (float) a;
     w=l/max;
-    paintGL();
+    updateGL();
+}
+
+void BateriaBar::setMaximum(float a)
+{
+    max= a;
+    w=l/max;
+    updateGL();
 }
 
 void BateriaBar::initializeGL()
@@ -65,6 +72,13 @@ void BateriaBar::resizeGL(int width, int height)
 void BateriaBar::setValue(int a)
 {
     l= (float) a;
+    w=l/max;
+    updateGL();
+}
+
+void BateriaBar::setValue(float a)
+{
+    l= a;
     w=l/max;
     updateGL();
 }
