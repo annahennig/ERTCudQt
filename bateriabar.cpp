@@ -11,16 +11,16 @@ BateriaBar::BateriaBar(QWidget *parent) :
     //test
 }
 
-void BateriaBar::setMaximum(int a)
+void BateriaBar::setMaximum(int value)
 {
-    max= (float) a;
+    max= (float) value;
     w=l/max;
     updateGL();
 }
 
-void BateriaBar::setMaximum(float a)
+void BateriaBar::setMaximum(float value)
 {
-    max= a;
+    max= value;
     w=l/max;
     updateGL();
 }
@@ -69,16 +69,16 @@ void BateriaBar::resizeGL(int width, int height)
 }
 
 
-void BateriaBar::setValue(int a)
+void BateriaBar::setValue(int value)
 {
-    l= (float) a;
+    l= (float) value;
     w=l/max;
     updateGL();
 }
 
-void BateriaBar::setValue(float a)
+void BateriaBar::setValue(float value)
 {
-    l= a;
+    l= value;
     w=l/max;
     updateGL();
 }

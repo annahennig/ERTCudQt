@@ -13,10 +13,10 @@ public:
 signals:
 
 public slots:
-    void setMaximum(int a);
-    void setValue(int a);
-    void setMaximum(float a);
-    void setValue(float a);
+    void setMaximum(int value);
+    void setValue(int value);
+    void setMaximum(float value);
+    void setValue(float value);
 protected:
     void initializeGL();
     void paintGL();
