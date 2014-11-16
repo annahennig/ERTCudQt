@@ -10,8 +10,7 @@ Marian ma napisany jakiś widget OpenGl do wyświetlania ramienia, także jeśli
 Dobrze by było zachować spójną konwencję - starajcie się przestrzegać (tak, wiem że w kilku miejscach sam tego nie robię): CamelCase wszędzie gdzie się da, poza #DEFINICJAMI
 
 NazwyKLas - wielkie litery void nazwaMetody(int argument) -mała litera, argumenty małą int *wskaznik - mała litera int ZmiennaWKlasie - duża litera 
-#define WARTOSC_DEFINICJI -same wielkie litery z podkreślnikami
-
+define WARTOSC_DEFINICJI -same wielkie litery z podkreślnikami
 Dobrze by było nie używać bibliotek tylko dla windowsa- kilka osób pisze na linuksach.
 
 Wszelkie nazwy w programie powinny być po angielsku, jak ktoś nie lubi to może używać polskich w czasie pisania, ale później zrobić prawoklik->refraktoryzacja->zmień nazwę symbolu i napisać angielskie.
