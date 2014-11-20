@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //przyciski
     connect(ui->pushButtonConnect,SIGNAL(clicked()),monitor,SLOT(openSerialPort()));
     connect(ui->pushButtonPreferences,SIGNAL(clicked()),monitor->settings,SLOT(show()));
-    connect(ui->pushButtonDsiconnect,SIGNAL(clicked()),monitor,SLOT(closeSerialPort()));
+    connect(ui->pushButtonDisconnect,SIGNAL(clicked()),monitor,SLOT(closeSerialPort()));
     //sygnały wysyłane, przez monitor portu
     connect(monitor,SIGNAL(newDataArrived(QByteArray)),this,SLOT(showData(QByteArray)));
     connect(monitor,SIGNAL(newLeftVerticaTriggerValue(int)),ui->verticalSliderLeftVerticalTrigger,SLOT(setValue(int)));

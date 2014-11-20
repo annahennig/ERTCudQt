@@ -112,11 +112,11 @@ void PortMonitor::readData()
             //opis lewego drążka
             emit newLeftTriggerString(QString("Lewy drążek: %1 x %2").arg(leftHorizontalTrigger).arg(leftVerticalTrigger));
 
-            //prawy drążek poziomy-do sprawdzenia
+            //prawy drążek poziomy
             qint16 rightHorizontalTrigger = mergeBytes(data[8],data[7]);
             emit newRightHorizontalTriggerValue(rightHorizontalTrigger);
 
-            //prawy drążek pionowy-do sprawdzenia
+            //prawy drążek pionowy
             qint16 rightVerticalTrigger = mergeBytes(data[10],data[9]);
             emit newRightVerticaTriggerValue(rightVerticalTrigger);
 

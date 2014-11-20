@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>381</width>
+    <height>278</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,7 +20,7 @@
       <item>
        <widget class="QLabel" name="labelLeftTrigger">
         <property name="text">
-         <string>Lewy Drążek:</string>
+         <string>Lewy drążek:</string>
         </property>
        </widget>
       </item>
@@ -86,7 +86,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButtonDsiconnect">
+       <widget class="QPushButton" name="pushButtonDisconnect">
         <property name="text">
          <string>Rozłącz</string>
         </property>
@@ -115,18 +115,13 @@
      </layout>
     </item>
    </layout>
-   <zorder>plainTextEditLog</zorder>
-   <zorder>horizontalSliderLeftHorizontalTrigger</zorder>
-   <zorder>horizontalLayoutWidget</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>labelRightTrigger</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>381</width>
      <height>21</height>
     </rect>
    </property>
