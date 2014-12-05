@@ -23,6 +23,7 @@ public:
 private:
     Ui::MapWindow *ui;
     QMapControl *map;
+
 };
 
 #endif // MAPWINDOW_H
