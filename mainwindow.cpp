@@ -7,10 +7,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     monitor = new PortMonitor(this);
+    mapWindow = new MapWindow(this);
     //przyciski
     connect(ui->pushButtonConnect,SIGNAL(clicked()),monitor,SLOT(openSerialPort()));
     connect(ui->pushButtonPreferences,SIGNAL(clicked()),monitor->settings,SLOT(show()));
     connect(ui->pushButtonDisconnect,SIGNAL(clicked()),monitor,SLOT(closeSerialPort()));
+    connect(ui->pushButtonMap,SIGNAL(clicked()),mapWindow,SLOT(show()));
     //sygnały wysyłane, przez monitor portu
     connect(monitor,SIGNAL(newDataArrived(QByteArray)),this,SLOT(showData(QByteArray)));
     connect(monitor,SIGNAL(newLeftVerticaTriggerValue(int)),ui->verticalSliderLeftVerticalTrigger,SLOT(setValue(int)));
@@ -28,6 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->horizontalSliderLeftHorizontalTrigger->setMaximum(100);
     ui->horizontalSliderRightHorizontalTrigger->setMinimum(-100);
     ui->horizontalSliderRightHorizontalTrigger->setMaximum(100);
+
 }
 
 
@@ -37,6 +40,7 @@ MainWindow::~MainWindow()
 {
     delete monitor;
     delete ui;
+    delete mapWindow;
 }
 
 void MainWindow::showData(QByteArray data)

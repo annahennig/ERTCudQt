@@ -5,6 +5,7 @@
 
 #include "portmonitor.h"
 #include "bateriabar.h"
+#include "mapwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,7 +22,7 @@ public:
 private:
     Ui::MainWindow *ui;
     PortMonitor *monitor;
-
+    MapWindow *mapWindow;
 private slots:
     void showData(QByteArray data);
 };
