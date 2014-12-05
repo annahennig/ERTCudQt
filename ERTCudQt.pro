@@ -7,7 +7,7 @@
 QT       += core gui serialport opengl
 
 #mapy
-include(QMC.pri)
+include(QMC/QMC.pri)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
