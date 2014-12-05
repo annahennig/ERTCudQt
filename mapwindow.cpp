@@ -14,7 +14,8 @@ MapWindow::MapWindow(QWidget *parent) :
     ui->verticalLayout->addWidget(map);
     //dodaję warstwę z obrazkami map
     map->addLayer(std::make_shared<LayerMapAdapter>("Warstwa z mapą", std::make_shared<MapAdapterOSM>()));
-
+    //PointWorldCoord Poznan;
+//    map->setMapFocusPoint(Poznan);
 
 }
 

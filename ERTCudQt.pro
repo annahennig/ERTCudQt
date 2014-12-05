@@ -5,14 +5,16 @@
 #-------------------------------------------------
 
 QT       += core gui serialport opengl
-#include(QMapControl.pri)
-include(QM.pri)
+
+#mapy
+include(QMC/QMC.pri)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = ERTCudQt
 TEMPLATE = app
 
+#kompilacja c++11
 CONFIG += c++11 \
 
 
@@ -30,7 +32,6 @@ HEADERS  += mainwindow.h \
     loggingdevice.h \
     portmonitor.h \
     portsettingswindow.h \
-#    src/QMapControl/qmapcontrol.h\
     mapwindow.h
 
 
@@ -38,6 +39,3 @@ FORMS    += mainwindow.ui \
     PortSettingsWindow.ui \
     mapwindow.ui
 
-OTHER_FILES += \
-    QM.pri \
-    QMapControl.pri \
