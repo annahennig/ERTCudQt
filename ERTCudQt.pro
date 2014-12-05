@@ -7,7 +7,7 @@
 QT       += core gui serialport opengl
 
 #mapy
-include(QMC/QMC.pri)
+include(QMC.pri)
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -39,3 +39,5 @@ FORMS    += mainwindow.ui \
     PortSettingsWindow.ui \
     mapwindow.ui
 
+OTHER_FILES += QMC.pri \
+            QMapControl.pri

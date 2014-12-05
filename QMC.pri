@@ -6,13 +6,13 @@ win32 {
     # Capture whether this is a release/debug build.
     CONFIG(debug, debug|release) {
         # Add QMapControl library.
-        LIBS += -L $(PREFIX)/src/QMapControl/lib -lqmapcontrold1
-#    LIBS += -L D:/github/ERTCudQt/src/QMapControl/lib -lqmapcontrold1
+#        LIBS += -L $(PREFIX)/src/QMapControl/lib -lqmapcontrold1
+    LIBS += -L D:/github/ERTCudQt/src/QMapControl/lib -lqmapcontrold1
     }
     CONFIG(release, debug|release) {
         # Add QMapControl library.
-#        LIBS += -L../../src/QMapControl/lib -lqmapcontrol1
-        LIBS += -L $(PREFIX)/src/QMapControl/lib -lqmapcontrol1
+        LIBS += -L../../src/QMapControl/lib -lqmapcontrol1
+#        LIBS += -L $(PREFIX)/src/QMapControl/lib -lqmapcontrol1
     }
 }
 
@@ -25,7 +25,7 @@ unix {
     }
     CONFIG(release, debug|release) {
         # Add QMapControl library.
-        LIBS += -L /src/QMapControl/lib -lqmapcontrol
+        LIBS += -L src/QMapControl/lib -lqmapcontrol
     }
 }
 
